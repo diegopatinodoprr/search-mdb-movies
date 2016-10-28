@@ -3,11 +3,7 @@
 /.tmp
 /.sass-cache
 /bower_components
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/search-mdb-movies.iml
-.idea/workspace.xml
+/.idea
 
 
 
