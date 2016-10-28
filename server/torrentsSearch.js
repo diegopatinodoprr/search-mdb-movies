@@ -2,8 +2,8 @@
 var _                = require('lodash');
 const TorrentsSearch = require('torrents-search');
 // Custom logger
-const myLogger = {
-  info: function (msg) {
+const myLogger       = {
+  info    : function (msg) {
     console.log(msg);
   }, error: function (msg) {
     console.error(msg);
@@ -20,34 +20,34 @@ class SearchTorrent {
     this.search.loadTrackers()
     .then(() => {
       console.log('Loaded trackers :', self.search.getTrackers());
-    self.search.enableTracker('Cpasbien');
-    search.enableTracker('FrenchTorrentDB');
-    self.ready = true;
-  }).catch((err) => {self.ready = false;
-  })
+      self.search.enableTracker('Cpasbien');
+      self.search.enableTracker('FrenchTorrentDB');
+      self.ready = true;
+    }).catch((err) => {
+      self.ready = false;
+    })
   }
   
   searchTorrent(title) {
     console.log("recherche des torrent pour " + title)
     return this.search.search(title, {type: 'movie'}).then(torrents => {
-        console.log(torrents.length + ' torrent(s) found.');
-    var res = []
-    _.map(torrents, function (t) {
-      var rigth_uri = _.last(_.split(t.detailsUrl, '/'))
-      console.log(rigth_uri)
-      var left_uri = t._tracker._endpoints.download
-      var uri      = left_uri + "/" + rigth_uri.replace('html', 'torrent')
-      res.push({uri: uri, single: rigth_uri})
-    })
-    if (res.length == 0) {
-      res.push({uri: '/', single: "pas des torrents"})
-    }
-    console.dir(res)
-    //detailsUrl
-    //_tracker.Cpasbien._endpoint.download
-    return res
-  })
-    ;
+      console.log(torrents.length + ' torrent(s) found.');
+      var res = []
+      _.map(torrents, function (t) {
+        var rigth_uri = _.last(_.split(t.detailsUrl, '/'))
+        console.log(rigth_uri)
+        var left_uri = t._tracker._endpoints.download
+        var uri      = left_uri + "/" + rigth_uri.replace('html', 'torrent')
+        res.push({uri: uri, single: rigth_uri})
+      })
+      if (res.length == 0) {
+        res.push({uri: '/', single: "pas des torrents"})
+      }
+      console.dir(res)
+      //detailsUrl
+      //_tracker.Cpasbien._endpoint.download
+      return res
+    });
   }
 }
 module.exports = SearchTorrent;

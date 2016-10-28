@@ -1,6 +1,6 @@
 <div class="movies-container" id="top">
-    <ul class="movies">
-        <li ng-repeat="movie in movies">
+    <ul class="movies" >
+        <li ng-repeat="movie in movies" style="list-style-type: none">
             <div class="row">
                 <div class="col-md-4">
                     <img ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" width="100" height="150"/>
@@ -24,7 +24,7 @@
     </ul>
     <div class="row">
     <ul uib-pagination total-items="totalPages" ng-model="currentPage" ng-change="pageChanged()" max-size="5" class="pagination-sm" boundary-links="true" rotate="false"></ul>
-   
-       
+
+
     </div>
 </div>

@@ -1,4 +1,5 @@
 var mdb = require('moviedb')('5192eb6331a3db50b6b388ae8941edc6');
+var express=require('express')
 var app = require('express')();
 var torrent=require('./torrentsSearch.js');
 var torrentsearch=new torrent();
@@ -7,7 +8,9 @@ app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
+app.use(express.static('./app'))
+app.use('/bower_components',express.static('./bower_components'))
+app.use('/styles',express.static('./app/styles'))
 app.get('/popular', function(req, res){
 
     var page = (req.query["page"]) ? req.query["page"] : 1;
@@ -48,7 +51,7 @@ app.get('/torrent', function (req, res) {
         torrentsearch.searchTorrent(title).then((torrents=>{
             console.log("recuperation des torrents : "+torrents.length)
             res.send(torrents);
-        }))    
+        }))
     }else{
         res.send(["waiting"])
     }

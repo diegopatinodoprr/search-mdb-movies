@@ -15,17 +15,17 @@
     
     return {
       popular: function (page) {
-        return $http.get("http://localhost:3000/popular?page=" + page);
+        return $http.get("/popular?page=" + page);
       },
       search: function(query, page){
-        return $http.get("http://localhost:3000/search?q=" + query + "&page=" + page);
+        return $http.get("/search?q=" + query + "&page=" + page);
       },
       info: function(id){
-        return $http.get("http://localhost:3000/info/" + id);
+        return $http.get("/info/" + id);
       },
       getTorrent:function(title)
       {
-        return $http.get("http://localhost:3000/torrent?title=" + title); 
+        return $http.get("/torrent?title=" + title);
       }
     };
   });
