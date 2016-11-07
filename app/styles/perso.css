@@ -1,0 +1,16 @@
+body{
+	background-image: url("/images/bkg.jpg");
+}
+.movies-container{
+  background-color: #37211c;
+  padding: 10px;
+
+}
+.single-movie{
+  padding: 5px;
+  background-color: RGBA(255,255,255,0.25);
+  border: aliceblue;
+  border-style: solid;
+  border-width: 1px;
+}
+
