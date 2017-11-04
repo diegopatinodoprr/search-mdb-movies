@@ -1,0 +1,43 @@
+.mat-toolbar-row {
+    height: 100px;
+}
+
+.example-spacer {
+    width: 30px;
+}
+
+.moviesdisplay {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.movieCard {
+    width: 200px;
+    height: 397px;
+    display: block;
+    padding: 7px;
+}
+
+.mat-card {
+    padding: 10px;
+}
+
+.mat-card-image {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.mat-card-actions {
+    text-align: center;
+}

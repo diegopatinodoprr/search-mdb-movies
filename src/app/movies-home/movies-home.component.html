@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span>MD Movies</span>
+    <span class="example-spacer"></span>
+    <mat-form-field>
+        <input matInput [type]="'text'" [(ngModel)]="searchfield">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="search()">Chercher<mat-icon matSuffix >search</mat-icon></button>
+    <button mat-raised-button color="primary" (click)="favorites()">populaires<mat-icon matSuffix >favorite</mat-icon></button>
+</mat-toolbar>
+
+<div class="moviesdisplay">
+
+    <div class="movieCard" *ngFor="let movie of movies">
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{movie.title}}</mat-card-title>
+                <mat-card-subtitle>{{movie.release_date}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="'http://image.tmdb.org/t/p/w500'+movie.poster_path" onError="this.src='https://i.stack.imgur.com/NsklR.png?s=328&g=1'">
+            <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="details(movie.id)">Details<mat-icon matSuffix >details</mat-icon></button>
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+
+</div>
